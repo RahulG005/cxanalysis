@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "cxanalysisdatafactory"
+		},
+		"backend_ls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'backend_ls'"
+		},
+		"cxanalysisdatalake_ls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'cxanalysisdatalake_ls'"
+		},
+		"backend_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://backendcx.dfs.core.windows.net/"
+		},
+		"bricks_ls_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1119-022723-a6ng4sj4"
+		},
+		"cxanalysisdatalake_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://customeranalysisdatalake.dfs.core.windows.net/"
+		},
+		"kv_ls_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://projectKV5.vault.azure.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "cxanalysisdatafactory_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"backend_ls_accountKey": {
+						"value": "[parameters('backend_ls_accountKey')]"
+					},
+					"cxanalysisdatalake_ls_accountKey": {
+						"value": "[parameters('cxanalysisdatalake_ls_accountKey')]"
+					},
+					"backend_ls_properties_typeProperties_url": {
+						"value": "[parameters('backend_ls_properties_typeProperties_url')]"
+					},
+					"cxanalysisdatalake_ls_properties_typeProperties_url": {
+						"value": "[parameters('cxanalysisdatalake_ls_properties_typeProperties_url')]"
+					},
+					"kv_ls_properties_typeProperties_baseUrl": {
+						"value": "[parameters('kv_ls_properties_typeProperties_baseUrl')]"
+					},
+					"bricks_ls_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('bricks_ls_properties_typeProperties_existingClusterId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "cxanalysisdatafactory"
+		},
+		"backend_ls_accountKey": {
+			"value": ""
+		},
+		"cxanalysisdatalake_ls_accountKey": {
+			"value": ""
+		},
+		"backend_ls_properties_typeProperties_url": {
+			"value": "https://backendcx.dfs.core.windows.net/"
+		},
+		"bricks_ls_properties_typeProperties_existingClusterId": {
+			"value": "1119-022723-a6ng4sj4"
+		},
+		"cxanalysisdatalake_ls_properties_typeProperties_url": {
+			"value": "https://customeranalysisdatalake.dfs.core.windows.net/"
+		},
+		"kv_ls_properties_typeProperties_baseUrl": {
+			"value": "https://projectKV5.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
