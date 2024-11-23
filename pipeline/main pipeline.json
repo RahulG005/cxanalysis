@@ -1,5 +1,5 @@
 {
-	"name": "copy pipeline",
+	"name": "main pipeline",
 	"properties": {
 		"activities": [
 			{
