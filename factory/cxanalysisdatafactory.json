@@ -1,0 +1,9 @@
+{
+	"name": "cxanalysisdatafactory",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1aa212a0-8e63-470b-b365-66eba8e43a43",
+		"tenantId": "d4afed27-6d3e-4517-9390-dea15d76a768"
+	}
+}
